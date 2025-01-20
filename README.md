@@ -34,8 +34,22 @@ Brief coverage of how the Neural Network is built
 * variables is the returned weights and bias
 * The weights and bias and their respective gradients are then passed to the RMSProp optimizer to tune and adjust. RMSProp adjusts the learning rate efficiently based on the moving average of squared gradients, preventing it from becoming too small
 * After training completes based on the number of iterations you set or throughout the entire training data set, the final weight and bias values (variables) are saved. The model is ready for inference use.
+</br>
+<img width="1106" alt="NeuralNetworkBlueprint7" src="https://github.com/user-attachments/assets/04bf6431-1459-4eee-a004-7164f9e76cbb" />
 
+* 'RunAngleAxisModel' allows us to infer from the saved model.
+* 'CollectInferenceAngleAxisActorData' takes the current position & rotation of the falling cube and feeds it to the model to predict the next frame, where the cube should be positioned, and which angle it should be rotated. 
+* 'Do Once' function randomly generates an initial linear and angular velocity to apply to a static cube.
+* </br>
+<img width="1125" alt="AngleAxisInferenceBlueprint2" src="https://github.com/user-attachments/assets/eddb85bb-2898-476f-b637-e8abb54bcaa9" />
 
+* 'Move cube' function takes in predicted angular and linear velocities from the model and applies it to the cube.
+* 'count frames variable' resets the cube's position to its initial position after a certain number of frames (so it doenst continue falling to the end of the world)
+</br>
+<img width="1046" alt="AngleAxisInferenceBlueprint3" src="https://github.com/user-attachments/assets/e2393714-59fc-429d-8957-42f01f26a94a" />
+
+* Once the cube is resetted after a number of frames, another initial linear and angular velocity is applied
+</br>
 Results of Unreal Engine Physics simulator
 
 * "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 1
