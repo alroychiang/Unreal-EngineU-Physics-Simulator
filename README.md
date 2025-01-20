@@ -20,6 +20,22 @@ Brief coverage of how the Neural Network is built
 * LayerInput function is to convert from NNOutput datatype into a LayerInput datatype, required before inputting into the Model for training/ inference. Both datatypes are classes that is coded in the custom UE Tensorflow  Plugin
 * 'LinkNNModel as subgraph' is a wrapper function that stores model layers into a neat function node. This is for readability and portability purposes. E.d Residual Neural Network, Multilayer Perceptron.
 <br/>
+<img width="715" alt="NeuralNetworkBlueprint4 (cut)" src="https://github.com/user-attachments/assets/44090b18-23da-443e-aada-76adbf0805eb" />
+
+* Denormalize function is to unnormalize predicted output from model. It is also used to unnormalize the initial input (which acts as a GTV) for the current prediction
+<br/>
+<img width="1422" alt="NeuralNetworkBlueprint5" src="https://github.com/user-attachments/assets/f4d457d9-6b5a-4f27-b10d-8fae7a8a0148" />
+
+* After obtaining the unnormalized linear velocities & angular velocities, the calculated rotation and distance is added to its previous last known frame/ position & rotation to obtain the next predicted frame
+* the loss value is calculated
+</br>
+<img width="1417" alt="NeuralNetworkBlueprint6" src="https://github.com/user-attachments/assets/668e7eb5-458b-4de2-a597-61793a2bf7d9" />
+
+* variables is the returned weights and bias
+* The weights and bias and their respective gradients are then passed to the RMSProp optimizer to tune and adjust. RMSProp adjusts the learning rate efficiently based on the moving average of squared gradients, preventing it from becoming too small
+* After training completes based on the number of iterations you set or throughout the entire training data set, the final weight and bias values (variables) are saved. The model is ready for inference use.
+
+
 Results of Unreal Engine Physics simulator
 
 * "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 1
