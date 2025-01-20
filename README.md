@@ -1,6 +1,7 @@
 # Unreal-Engine-Physics-Simulator
 
-Brief coverage of how the Neural Network is built:
+Brief coverage of how the Neural Network is built
+
 <img width="1084" alt="NeuralNetworkBlueprint1" src="https://github.com/user-attachments/assets/b422de35-671e-46c3-ab93-bb5f8de3f9ee" />
 * Training input Data variable consist of the entire dataset (millions of rows) residing in a single tensor E.g { 400,000, 88, 15 } where the batch size is { 400,000, 15 }, 88 sets
 * Mean and Std Dev variables are tensors used to normalize input data
@@ -15,7 +16,6 @@ Brief coverage of how the Neural Network is built:
 * Redundant variables are created & printed here for debugging/ logging purposes E.g GTVresetCondition, Input Frame, GTV, deltaseconds
 * LayerInput function is to convert from NNOutput datatype into a LayerInput datatype, required before inputting into the Model for training/ inference. Both datatypes are classes that is coded in the custom UE Tensorflow  Plugin
 * 'LinkNNModel as subgraph' is a wrapper function that stores model layers into a neat function node. This is for readability and portability purposes. E.d Residual Neural Network, Multilayer Perceptron.
-
 
 Results of Unreal Engine Physics simulator 
 * "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 1
