@@ -1,5 +1,11 @@
 # Unreal Physics Engine Neural Network
 
+Results of Unreal Engine Physics simulator
+
+* "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 1
+* "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 2
+* "https://drive.google.com/file/d/1uWCpN5p6AhEibpkFYb22p0bTO-hn2XDD/view?usp=sharing" Euler Representation
+
 Brief coverage of how the Neural Network is built
 
 <img width="1084" alt="NeuralNetworkBlueprint1" src="https://github.com/user-attachments/assets/b422de35-671e-46c3-ab93-bb5f8de3f9ee" />
@@ -40,7 +46,7 @@ Brief coverage of how the Neural Network is built
 * 'RunAngleAxisModel' allows us to infer from the saved model.
 * 'CollectInferenceAngleAxisActorData' takes the current position & rotation of the falling cube and feeds it to the model to predict the next frame, where the cube should be positioned, and which angle it should be rotated. 
 * 'Do Once' function randomly generates an initial linear and angular velocity to apply to a static cube.
-* </br>
+</br>
 <img width="1125" alt="AngleAxisInferenceBlueprint2" src="https://github.com/user-attachments/assets/eddb85bb-2898-476f-b637-e8abb54bcaa9" />
 
 * 'Move cube' function takes in predicted angular and linear velocities from the model and applies it to the cube.
@@ -50,8 +56,4 @@ Brief coverage of how the Neural Network is built
 
 * Once the cube is resetted after a number of frames, another initial linear and angular velocity is applied
 </br>
-Results of Unreal Engine Physics simulator
 
-* "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 1
-* "https://drive.google.com/file/d/1Et-_OysCh8klIzQgDGKlZ4CSIRTsnEd5/view?usp=sharing" Angle Axis Representation video 2
-* "https://drive.google.com/file/d/1uWCpN5p6AhEibpkFYb22p0bTO-hn2XDD/view?usp=sharing" Euler Representation
